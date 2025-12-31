@@ -1,0 +1,13 @@
+controller:
+  service:
+    type: "NodePort"
+  nodeSelector:
+    ingress-ready: "true"
+  tolerations:
+  - effect: "NoSchedule"
+    key: "node-role.kubernetes.io/control-plane"
+    operator: "Equal"
+  admissionWebhooks:
+    enabled: false
+  hostPort:
+    enabled: true
