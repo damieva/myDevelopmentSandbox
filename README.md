@@ -39,3 +39,18 @@ The setup is intentionally close to real-world Platform / SRE workflows, while r
 ├── k8s-tools/            # Tooling installed on the cluster (ArgoCD, etc.)
 │   └── terragrunt.hcl
 └── Makefile              # Human-friendly interface for Terragrunt
+```
+---
+
+## 🌐 Access
+
+### ArgoCD UI
+
+Once the environment is up and running, ArgoCD is available locally at:
+
+👉 **http://argocd.127.0.0.1.nip.io:8080/**
+
+This setup uses the `nip.io` wildcard DNS, which resolves automatically to `127.0.0.1`.  
+No local DNS configuration or `/etc/hosts` changes are required.
+
+---
