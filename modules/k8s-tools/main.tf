@@ -5,7 +5,10 @@ resource "helm_release" "argocd" {
   chart            = "argo-cd"
   namespace        = "argocd"
   create_namespace = true
-  version          = "5.52.0"
+  version          = "9.2.3"
+  values = [templatefile("_templates/argocd_values.tftpl", {
+    domain = var.domain
+  })]
 }
 
 # Instalación de NGINX Ingress Controller
@@ -16,5 +19,5 @@ resource "helm_release" "ingress_nginx" {
   namespace        = "ingress-nginx"
   create_namespace = true
   version          = "4.14.1"
-  values           = [templatefile("_templates/ingress_values.yaml", {})]
+  values           = [templatefile("_templates/ingress_values.tftpl", {})]
 }
